@@ -114,12 +114,32 @@
 - (IBAction)directionSelectorChanged:(UISegmentedControl*)seg 
 {
     if (seg.selectedSegmentIndex == 0) {
+        self.sideView.frame = CGRectMake(self.sideView.frame.origin.x,
+                                         self.sideView.frame.origin.y,
+                                         180.0, 460.0);
         currDirection = XYOrigamiDirectionFromLeft;
-        self.closeBtn.frame = CGRectMake(20, 405, 40, 30);
+        self.closeBtn.frame = CGRectMake(20, 405, 70, 30);
+    }
+    else if (seg.selectedSegmentIndex == 1){
+        self.sideView.frame = CGRectMake(self.sideView.frame.origin.x,
+                                         self.sideView.frame.origin.y,
+                                         180.0, 460.0);
+        currDirection = XYOrigamiDirectionFromRight;
+        self.closeBtn.frame = CGRectMake(240, 405, 70, 30);
+    }
+    else if (seg.selectedSegmentIndex == 2){
+        self.sideView.frame = CGRectMake(self.sideView.frame.origin.x,
+                                         self.sideView.frame.origin.y,
+                                         320.0, 240.0);
+        currDirection = XYOrigamiDirectionFromTop;
+        self.closeBtn.frame = CGRectMake(240, 10, 70, 30);
     }
     else {
-        currDirection = XYOrigamiDirectionFromRight;
-        self.closeBtn.frame = CGRectMake(260, 405, 40, 30);
+        self.sideView.frame = CGRectMake(self.sideView.frame.origin.x,
+                                         self.sideView.frame.origin.y,
+                                         320.0, 240.0);
+        currDirection = XYOrigamiDirectionFromBottom;
+        self.closeBtn.frame = CGRectMake(240, 405, 70, 30);
     }
 }
 
